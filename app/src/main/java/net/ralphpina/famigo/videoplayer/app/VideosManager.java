@@ -34,6 +34,10 @@ public class VideosManager {
         this.mVideos = videos;
     }
 
+    public void clear() {
+        mVideos.clear();
+    }
+
     public void addVideo(Video video) {
         mVideos.add(video);
     }

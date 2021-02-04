@@ -8,7 +8,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_test_full_screen">TestFullScreen</string>
-    <string name="likes">Likes:</string>
-    <string name="views">Views:</string>
+
+    <string name="videolist_url">http://192.168.1.1/somepath</string>
 
 </resources>

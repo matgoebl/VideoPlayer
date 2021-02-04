@@ -63,6 +63,8 @@ public class VideoListFragmentFragment extends Fragment implements AbsListView.O
         mVideosManager = VideosManager.getInstance();
     }
 
+    boolean ALWAYS_RELOAD_LIST = true;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -71,12 +73,13 @@ public class VideoListFragmentFragment extends Fragment implements AbsListView.O
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
 
-        if (mVideosManager.getVideos().size() > 0) {
+        if (!ALWAYS_RELOAD_LIST && mVideosManager.getVideos().size() > 0) {
             setVideoAdapter();
         } else {
+            mVideosManager.clear();
             // Go get some videos
             RestAdapter restAdapter = new RestAdapter.Builder()
-                    .setEndpoint("https://gdata.youtube.com") // The base API endpoint.
+                    .setEndpoint(getResources().getString(R.string.videolist_url)) // The base API endpoint.
                     .build();
             VideoService youTube = restAdapter.create(VideoService.class);
             youTube.videos(new MyCallBack());

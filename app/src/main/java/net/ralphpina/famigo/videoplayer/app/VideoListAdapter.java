@@ -64,8 +64,6 @@ public class VideoListAdapter extends BaseAdapter {
 
             viewHolder.videoThumbnail = (ImageView) convertView.findViewById(R.id.videoThumbnail);
             viewHolder.videoTitle = (TextView) convertView.findViewById(R.id.videoTitle);
-            viewHolder.likesCount = (TextView) convertView.findViewById(R.id.likesTextView);
-            viewHolder.viewCount = (TextView) convertView.findViewById(R.id.viewCountTextView);
 
             convertView.setTag(viewHolder);
 
@@ -77,11 +75,6 @@ public class VideoListAdapter extends BaseAdapter {
         Picasso.with(mActivity).load(videos.get(position).getThumbNailUrl()).into(viewHolder.videoThumbnail);
         viewHolder.videoThumbnail.setTag(position);
         viewHolder.videoTitle.setText(videos.get(position).getTitle());
-        viewHolder.videoTitle.setTag(position);
-        viewHolder.likesCount.setText(videos.get(position).getLikeCount());
-        viewHolder.likesCount.setTag(position);
-        viewHolder.viewCount.setText(Integer.toString(videos.get(position).getViewCount()));
-        viewHolder.viewCount.setTag(position);
 
         return convertView;
     }
